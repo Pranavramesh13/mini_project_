@@ -1,0 +1,21 @@
+<h1 style="font-size:65px">Your Cart</h1>
+
+{% if cart_items %}
+<table>
+    <tr>
+        <th>Dish</th>
+        <th>Price</th>
+    </tr>
+    {% for item in cart_items %}
+    <tr>
+        <td>{{ item[1] }}</td>
+        <td>₹{{ item[2] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<p>Total Price: ₹{{ total_price }}</p>
+<a href="/menu">Continue Shopping</a>
+{% else %}
+<p>Your cart is empty!</p>
+<a href="/menu">Go to Menu</a>
+{% endif %}

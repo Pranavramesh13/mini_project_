@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 style="font-size: 40px;">Your Cart</h2>
+<div class="cart">
+    {% if cart %}
+    <section>
+        {% for dish_name, item in cart.items() %}
+        <p>
+            {{ item['name'] }} - ₹{{ item['price'] }} x {{ item['quantity'] }}
+            <a href="/remove_from_cart/{{ dish_name }}">Remove</a>
+        </p>
+        {% endfor %}
+    </section>
+    <p>Total: ₹{{ total_price }}</p>
+    <form method="POST" action="/place_order">
+        <button type="submit">Place Order</button>
+    </form>
+    {% else %}
+    <p>Your cart is empty!</p>
+    {% endif %}
+</div>
+
+<h2 style="font-size: 60px;">Menu</h2>
+
+<form method="GET" action="/menu" class="search-form">
+    <input type="text" name="search" placeholder="Search dishes..." value="{{ search_query }}" class="search-input">
+    <button type="submit" class="search-button">Search</button>
+</form>
+
+<div class="dropdown">
+    <button class="dropbtn">Select Category</button>
+    <div class="dropdown-content">
+        <a href="/menu/breakfast">Breakfast</a>
+        <a href="/menu/breads">Breads</a>
+        <a href="/menu/starters">Starters</a>
+        <a href="/menu/main_course">Main Course</a>
+        <a href="/menu/rice">Rice</a>
+        <a href="/menu/noodles">Noodles</a>
+        <a href="/menu/pizza">Pizza</a>
+        <a href="/menu/burger">Burger</a>
+        <a href="/menu/pasta">Pasta</a>
+        <a href="/menu/snacks">Snacks</a>
+        <a href="/menu/chaats">Chaats</a>
+        <a href="/menu/dessert">Dessert</a>
+        <a href="/menu/beverages">Beverages</a>
+    </div>
+</div>
+
+<div class="menu">
+    {% for dish in dishes %}
+    <div class="dish">
+        <h3>{{ dish[1] }}</h3>
+        <p>Price: ₹{{ dish[2] }}</p>
+        <form method="POST" action="/add_to_cart/{{ dish[0] }}">
+            <input type="hidden" name="dish_id" value="{{ dish[0] }}">
+            <button type="submit">Add to Cart</button>
+        </form>
+    </div>
+    {% endfor %}
+</div>
+
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul class="flash-messages">
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
+{% endblock %}

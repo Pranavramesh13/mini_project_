@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2 style="font-size: 60px;">Admin</h2>
+<form method="GET" action="/admin" style="text-align: center; margin-bottom: 20px;">
+    <input type="text" name="search" placeholder="Search by name or category"
+           value="{{ request.args.get('search', '') }}"
+           style="padding: 10px; width: 300px; border: 1px solid #ccc; border-radius: 5px;">
+    <button type="submit" style="padding: 10px 20px; background-color: #ff6347; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        Search
+    </button>
+</form>
+<form method="POST" style="text-align: center;">
+    <input type="text" name="name" placeholder="Dish Name" required>
+    <input type="number" step="0.01" name="price" placeholder="Price" required>
+    <select name="category" required>
+        <option value="" disabled selected>Select Category</option>
+        <option value="Breakfast">Breakfast</option>
+        <option value="breads">Breads</option>
+        <option value="Starters">Starters</option>
+        <option value="Main_Course">Main Course</option>
+        <option value="Rice">Rice</option>
+        <option value="Noodles">Noodles</option>
+        <option value="Pizza">Pizza</option>
+        <option value="Burger">Burger</option>
+        <option value="Pasta">Pasta</option>
+        <option value="Snacks">Snacks</option>
+        <option value="Chaats">Chaats</option>
+        <option value="Dessert">Dessert</option>
+        <option value="Beverages">Beverages</option>
+    </select>
+    <input type="hidden" name="action" value="add">
+    <button type="submit">Add Dish</button>
+</form>
+
+<h3 style="font-size: 35px; text-align: left;">Existing Dishes</h3>
+<table style="text-align: center;">
+    <tr style="text-align: center;">
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Categories</th>
+        <th>Update Options</th>
+    </tr>
+    {% for dish in dishes %}
+    <tr>
+        <td>{{ dish[0] }}</td>
+        <td>{{ dish[1] }}</td>
+        <td>₹{{ dish[2] }}</td>
+        <td>{{ dish[4] }}</td>
+        <td>
+            <form method="POST" style="display:inline;">
+                <input type="hidden" name="id" value="{{ dish[0] }}">
+                <input type="text" name="name" value="{{ dish[1] }}" required>
+                <input type="number" step="0.01" name="price" value="{{ dish[2] }}" required>
+                 <select name="category" id = 'categories' required>
+                     <option value="Breakfast" {% if dish[4] =="Breakfast" %}selected{% endif %}>Breakfast</option>
+                     <option value="Breads" {% if dish[4] =="Breads" %}selected{% endif %}>Breads</option>
+                     <option value="Starters" {% if dish[4] =="Starters" %}selected{% endif %}>Starters</option>
+                     <option value="Main Course" {% if dish[4] =="MainCourse" %}selected{% endif %}>Main Course</option>
+                     <option value="Rice" {% if dish[4] =="Rice" %}selected{% endif %}>Rice</option>
+                     <option value="Noodles" {% if dish[4] =="Noodles" %}selected{% endif %}>Noodles</option>
+                     <option value="Pizza" {% if dish[4] =="Pizza" %}selected{% endif %}>Pizza</option>
+                     <option value="Burger" {% if dish[4] =="Burger" %}selected{% endif %}>Burger</option>
+                     <option value="Pasta" {% if dish[4] =="Pasta" %}selected{% endif %}>Pasta</option>
+                     <option value="Snacks" {% if dish[4] =="Snacks" %}selected{% endif %}>Snacks</option>
+                     <option value="Chaats" {% if dish[4] =="Chaats" %}selected{% endif %}>Chaats</option>
+                     <option value="Dessert" {% if dish[4] =="Dessert" %}selected{% endif %}>Dessert</option>
+                     <option value="Beverages" {% if dish[4] =="Beverages" %}selected{% endif %}>Beverages</option>
+                </select>
+                <input type="hidden" name="action" value="edit">
+                <button type="submit">Edit</button>
+            </form>
+            <form method="POST" style="display:inline;">
+                <input type="hidden" name="id" value="{{ dish[0] }}">
+                <input type="hidden" name="action" value="delete">
+                <button type="submit" style="background-color:red;">Delete</button>
+            </form>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

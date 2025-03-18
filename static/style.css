@@ -1,0 +1,497 @@
+/* General Reset */
+/* Global Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #fdf6e3; /* Softer background color for warmth */
+}
+
+/* Flexbox for Centering */
+.image-container {
+    display: flex;
+    justify-content: center; /* Horizontally centers the image */
+    align-items: center; /* Vertically centers the image */
+    height: 40vh; /* Adjusted height for better centering */
+    margin-top: 10px; /* Optional: space above container */
+    max-width: none; /* Disable max-width constraints */
+}
+
+/* Image Styling */
+.centered-image {
+    width: 300px; /* Explicitly set the width */
+    height: 300px; /* Explicitly set the height */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add depth */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+
+.centered-image:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+
+
+/* Common Styles */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 10px 0;
+    font-family: 'Georgia', serif;
+    color: #ff6347; /* Vibrant tomato color for headings */
+    text-align: center;
+}
+
+.styled-text {
+    font-style: italic;
+    font-size: 24px; /* Adjusted for better readability */
+    text-align: center;
+    font-weight: bold;
+    color: #ff6347;
+}
+
+/* Button Styles */
+button, .explore-menu-button {
+    padding: 15px 30px; /* Spacious padding */
+    border: none;
+    border-radius: 50px; /* Rounded edges for modern look */
+    background: linear-gradient(45deg, #ff8364, #ff6347); /* Smooth gradient */
+    color: #fff; /* White text */
+    font-size: 18px;
+    font-weight: bold; /* Strong emphasis */
+    text-transform: uppercase; /* All caps for prominence */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth hover effects */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center; /* Centers text */
+    text-align: center;
+    margin: 20px auto; /* Centered horizontally */
+}
+
+button:hover, .explore-menu-button:hover {
+    background: linear-gradient(45deg, #ff6347, #d9534f); /* Darker gradient */
+    transform: translateY(-3px) scale(1.05); /* Slight lift */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow */
+}
+
+button:active, .explore-menu-button:active {
+    transform: translateY(0); /* Reset on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lighter shadow on click */
+}
+
+/* Anchor Links */
+a {
+    color: #ff6347;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    background-color: #ff6347;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header a {
+    color: white;
+    margin: 0 15px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Navigation Bar */
+nav {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #ff8364;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+    margin: 0 50px; /* Reduced spacing for consistency */
+    font-size: 18px; /* Slightly smaller for better alignment */
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+nav a:hover {
+    color: #fdf6e3; /* Matches background for contrast */
+}
+
+/* Home Page */
+.home {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.home h1 {
+    font-size: 42px; /* Slightly larger */
+    margin-bottom: 20px;
+}
+
+.home p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* Styling for the Search Bar Container */
+.search-form {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically align items within the container */
+    position: relative; /* Use absolute positioning for precise placement */
+    top: 90%; /* Position the search bar vertically at the middle of the viewport */
+    left: 50%;/* Center the search bar horizontally */
+    margin-top:40px;
+    margin-right: 100px; /* Space between input and button */
+    transform: translate(-50%, -50%); /* Adjust for offset caused by left and top */
+    width: 20%; /* Span the full width of the page for responsiveness */
+    z-index: 20; /* Keep the search bar above other elements */
+}
+
+/* Styling for the Input Field */
+.search-input {
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+    width: 350px; /* Slightly larger input for better usability */
+    border: 1px solid #ccc;
+    border-radius: 25px; /* Rounded edges for a modern look */
+    margin-right: 5px; /* Space between input and button */
+    font-size: 16px;
+}
+
+/* Styling for the Button */
+.search-button {
+    padding: 12px 25px;
+    background: linear-gradient(45deg, #ff8364, #ff6347); /* Gradient background */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effect */
+}
+
+.search-button:hover {
+    background: linear-gradient(45deg, #ff6347, #d9534f); /* Darker gradient */
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.search-button:active {
+    transform: scale(1); /* Reset scaling when clicked */
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .search-input {
+        width: 250px; /* Adjust input size on smaller screens */
+    }
+
+    .search-button {
+        font-size: 14px; /* Slightly smaller button text */
+    }
+}
+
+
+
+.dropdown {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 100px;
+    }
+
+    .dropbtn {
+        background-color: #ff6347;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content a:hover {background-color: #f1f1f1}
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown:hover .dropbtn {
+        background-color: #3e8e41;
+    }
+
+/* Menu Section */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 100px;
+    justify-content: center;
+    padding: 80px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    transition: transform 0.3s ease;
+
+}
+
+.menu-item:hover {
+    transform: translateY(-5px);
+
+}
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+
+.menu-item h3 {
+    font-size: 20px;
+    color: #ff6347;
+}
+
+.menu-item p {
+    font-size: 16px;
+    color: #666;
+}
+
+.menu-item button {
+    margin-top: 10px;
+}
+
+.cart-container {
+    position: fixed; /* Ensure it stays fixed relative to the viewport */
+    top: 120px !important; /* Increased distance from the top for spacing */
+    right: 20px !important; /* Adjusted spacing from the right */
+    width: 250px; /* Width for the cart */
+    padding: 20px; /* Padding for inner content */
+    background-color: #f9f9f9; /* Light background */
+    border: 1px solid #ccc; /* Optional border */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Elevation shadow */
+    z-index: 1000; /* Ensure visibility above other elements */
+}
+
+
+/* Cart table styling */
+.cart-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-container th,
+.cart-container td {
+    text-align: left;
+    padding: 20px;
+}
+
+.cart-container p {
+    font-weight: bold;
+}
+
+.cart-container a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007bff; /* Button color */
+    color: #fff; /* Text color */
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.cart-container a:hover {
+    background-color: #0056b3; /* Hover color */
+}
+
+/* Cart Page */
+.cart {
+    padding: 100px 0;
+    text-align: center;
+}
+
+.cart table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.cart table th, .cart table td {
+    border: 1px solid #e0e0e0;
+    padding: 100px;
+    text-align: center;
+}
+
+.cart table th {
+    background-color: #ff8364;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.cart .total {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff6347;
+}
+
+
+
+/* Admin Page */
+.admin {
+    padding: 80px 0;
+
+}
+
+.admin form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+
+
+}
+
+.admin table img {
+    border-radius: 10px;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    text-align: center;
+}
+
+.admin input, .admin select {
+    padding: 20px;
+    font-size: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    text-align: center;
+
+}
+
+
+.admin button {
+    width: 100%;
+    max-width: 250px; /* Optional: you can set a max-width if needed */
+    margin: 0 auto; /* Centers the button */
+    align-self: center;
+}
+
+
+/* Alternatively, if button is inside another container, center using text-align */
+.admin .button-container {
+    display: flex;
+    justify-content: center; /* Centers the button */
+    width: 100%;
+}
+
+/* Contact Us Page */
+.contact {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f1f1f1; /* Light background for the contact page */
+}
+
+.contact h2 {
+    font-size: 32px;
+    color: #ff6347;
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+}
+
+.contact p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Social Media Icons Section */
+.contact .social-icons {
+    display: flex;
+    justify-content: center;  /* Centers the icons horizontally */
+    align-items: center;      /* Centers the icons vertically */
+    gap: 30px;                /* Adds space between the icons */
+    margin-top: 40px;
+}
+
+.contact .social-icons a {
+    font-size: 50px;  /* Enlarges the icons */
+    color: #ff6347;   /* Icon color */
+    transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.contact .social-icons a:hover {
+    color: #d9534f;   /* Changes color on hover */
+    transform: scale(1.2);  /* Slightly enlarges the icon on hover */
+}
+
+
+
+/* Footer */
+footer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+
+}
+
+        }
+footer a {
+    color: #ff6347;
+}
