@@ -23,5 +23,5 @@
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
         run: |
-          curl -X POST
- https://api.render.com/deploy/srv-cvcfniggph6c738cmu00?key=$rnd_LaFPN7ICnsiYOA6jEXqrH9YmKmGU
+          curl -X POST  https://api.render.com/deploy/srv-cvcfniggph6c738cmu00?key=$RENDER_API_KEY
+ 
